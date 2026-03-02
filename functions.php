@@ -1,6 +1,6 @@
 <?php
 /**
- * 46BA functions and definitions
+ * WP-LEGO functions and definitions
  */
 
 if ( ! function_exists( 'setup_46ba' ) ) :

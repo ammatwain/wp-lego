@@ -14,18 +14,15 @@ get_header();
             while ( have_posts() ) :
                 the_post();
                 ?>
-                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <a id="post-<?php the_ID(); ?>" <?php post_class(); ?> href="<?php the_permalink(); ?>" rel="bookmark">
                     <header class="entry-header">
-                        <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
-                            <span class="edit-link"> </span>
-                            <span class="posted-on"><?php echo get_the_date(); ?></span>
-                            <span class="byline"> <?php the_author(); ?></span>
+                        <?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
                     </header>
-
+                    <div class="posted-on"><?php echo get_the_date(); ?></div>
                     <div class="post-content">
                         <?php the_excerpt(); ?>
                     </div>
-                </article>
+                </a>
                 <?php
             endwhile;
 

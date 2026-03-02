@@ -1,5 +1,5 @@
 /*
-Theme Name: 46BA Modern Theme (Sass)
+Theme Name: WP-LEGO Modern Theme (Sass)
 Theme URI: http://example.com/
 Author: Antigravity
 Author URI: http://example.com/
@@ -54,23 +54,22 @@ img {
 
 a {
   text-decoration: none !important;
-  color: rgb(17.944, 83.352, 163.44);
+  color: #0f172a;
   transition: color 0.2s ease, opacity 0.2s ease;
 }
 a:visited {
-  color: rgb(17.944, 83.352, 163.44);
+  color: #0f172a;
 }
 a:hover {
-  color: #1369CF;
+  color: #2271B1;
   opacity: 0.8;
 }
 
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
-  background-color: rgb(245.56, 249, 253.08);
-  background-image: radial-gradient(rgba(15.48, 32.84, 61.8, 0.08) 1px, transparent 1px);
+  background-color: #F0F0F1;
   background-size: 24px 24px;
-  color: rgb(15.48, 32.84, 61.8);
+  color: #0f172a;
   font-size: 0.8125rem;
   min-height: 100vh;
   display: flex;
@@ -85,45 +84,41 @@ body {
   height: 100vh;
 }
 
-header {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(15.48, 32.84, 61.8, 0.08);
-  border: none;
-  border-bottom: 1px solid rgba(15.48, 32.84, 61.8, 0.08);
+.site-header {
+  background: linear-gradient(to bottom, #008C45 0%, #008C45 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #CD212A 66.66%, #CD212A 100%);
+  border: 1px solid #C3C4C7;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   padding: 0;
-  min-height: 48px;
+  max-height: 30px;
+  min-height: 30px;
 }
-header .site-title a {
-  color: rgb(15.48, 32.84, 61.8);
+.site-header .site-title a {
+  color: #0f172a;
   text-decoration: none;
   font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: -0.025em;
-  background: linear-gradient(to right, #fff, #1369CF);
+  background: linear-gradient(to right, #fff, #2271B1);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   display: block;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
 }
-header .main-navigation ul {
+.site-header .main-navigation ul {
   list-style: none;
   display: flex;
   gap: 1.25rem;
 }
-header .main-navigation a {
-  color: rgb(63.2, 88, 120.3);
+.site-header .main-navigation a {
+  color: #475569;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
   font-size: 0.8125rem;
 }
-header .main-navigation a:hover {
-  color: #1369CF;
+.site-header .main-navigation a:hover {
+  color: #2271B1;
 }
 
 .main-container {
@@ -137,7 +132,7 @@ header .main-navigation a:hover {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(15.48, 32.84, 61.8, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-top: none;
   border-bottom: none;
   border-left: none;
@@ -149,14 +144,14 @@ header .main-navigation a:hover {
 }
 .sidebar.sidebar-right {
   border-right: none;
-  border-left: 1px solid rgba(15.48, 32.84, 61.8, 0.08);
+  border-left: 1px solid rgba(15, 23, 42, 0.08);
 }
 .sidebar .widget-title {
   font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 0.625rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #1369CF;
+  color: #2271B1;
   margin-bottom: 1rem;
   font-weight: 700;
   display: flex;
@@ -167,8 +162,8 @@ header .main-navigation a:hover {
   content: "";
   width: 4px;
   height: 4px;
-  background: #ffcc00;
-  border-radius: 50%;
+  background-color: #2271B1;
+  border-radius: 0.25rem;
 }
 
 main#primary {
@@ -176,7 +171,6 @@ main#primary {
   overflow-y: auto;
   padding: 1rem;
   scroll-behavior: smooth;
-  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.03) 0%, transparent 70%);
 }
 main#primary .post-flow {
   display: grid;
@@ -185,117 +179,105 @@ main#primary .post-flow {
   grid-auto-flow: row;
   gap: 1rem;
 }
-main#primary .post-flow article {
+main#primary .post-flow .post {
+  cursor: pointer;
   /* Prima riga: A */
 }
-main#primary .post-flow article:nth-child(6n+1) {
+main#primary .post-flow .post:nth-child(6n+1) {
   grid-column: span 6;
 }
-main#primary .post-flow article {
+main#primary .post-flow .post {
   /* Seconda riga: B */
 }
-main#primary .post-flow article:nth-child(6n+2) {
+main#primary .post-flow .post:nth-child(6n+2) {
   grid-column: span 3;
 }
-main#primary .post-flow article {
+main#primary .post-flow .post {
   /* Seconda riga: C */
 }
-main#primary .post-flow article:nth-child(6n+3) {
+main#primary .post-flow .post:nth-child(6n+3) {
   grid-column: span 3;
 }
-main#primary .post-flow article {
+main#primary .post-flow .post {
   /* Terza riga e successive: D */
 }
-main#primary .post-flow article:nth-child(n+4):nth-child(3n+4) {
+main#primary .post-flow .post:nth-child(n+4):nth-child(3n+4) {
   grid-column: span 2;
 }
-main#primary .post-flow article {
+main#primary .post-flow .post {
   /* Terza riga e successive: E */
 }
-main#primary .post-flow article:nth-child(n+4):nth-child(3n+5) {
+main#primary .post-flow .post:nth-child(n+4):nth-child(3n+5) {
   grid-column: span 2;
 }
-main#primary .post-flow article {
+main#primary .post-flow .post {
   /* Terza riga e successive: F */
 }
-main#primary .post-flow article:nth-child(n+4):nth-child(3n+6) {
+main#primary .post-flow .post:nth-child(n+4):nth-child(3n+6) {
   grid-column: span 2;
 }
-main#primary .post {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(15.48, 32.84, 61.8, 0.08);
-  border-radius: 2px;
-  border: 1px solid rgba(15.48, 32.84, 61.8, 0.08);
-  background: rgba(223.24, 233.8, 245.64, 0.8);
-  padding: 1rem;
-  margin-bottom: 1rem;
+main#primary .post-flow .post {
+  display: grid;
+  /* Definisce 1 colonna che occupa tutto lo spazio disponibile */
+  grid-template-columns: 1fr;
+  /* Definisce 3 righe (es. uguali, fisse o basate sul contenuto) */
+  grid-template-rows: min-content min-content auto;
+  /* Opzionale: aggiunge spazio tra le righe */
+  gap: 1px;
+  max-height: 30vh;
+  border-radius: 0.25rem;
+  border: 1px solid #C3C4C7;
+  background-color: #C3C4C7;
   transition: all 0.2s ease;
   position: relative;
   overflow: visible;
 }
-main#primary .post::after {
+main#primary .post-flow .post::after {
   content: "";
   position: absolute;
   top: -5px;
-  right: 20px;
+  right: -5px;
   width: 10px;
   height: 10px;
-  background: #ffcc00;
+  background: #2271B1;
   border-radius: 50%;
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2);
 }
-main#primary .post .entry-header {
-  display: grid;
-  justify-items: self-end;
-  grid-template-columns: 2fr 2fr 1fr;
-  grid-template-rows: auto min-content;
-  gap: 0px 0px;
-  grid-template-areas: "a a a" "b c d";
-  margin-top: -1rem;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 1rem 0.5rem 0.5rem;
-  background: rgba(15.48, 32.84, 61.8, 0.05);
-  border-bottom: 2px solid rgba(15.48, 32.84, 61.8, 0.08);
-  font-family: "JetBrains Mono", "Fira Code", monospace;
+main#primary .post-flow .post .entry-header {
+  border-radius: 0.25rem 0.25rem 0 0;
+  padding: 0.25rem 0.5rem;
+  background-color: #E6E7F7;
   font-size: 0.6875rem;
-  text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: rgb(63.2, 88, 120.3);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+  color: #475569;
 }
-main#primary .post .entry-title {
+main#primary .post-flow .post .entry-title {
   justify-self: start;
-  grid-area: a;
 }
-main#primary .post .edit-link {
-  grid-area: b;
+main#primary .post-flow .post .posted-on {
+  background-color: #FFFFFF;
+  text-align: right;
+  color: #475569;
+  font-size: 0.625rem;
+  padding: 0.25rem 0.5rem;
+  font-style: italic;
 }
-main#primary .post .posted-on {
-  grid-area: c;
-}
-main#primary .post .byline {
-  grid-area: d;
-}
-main#primary .post::before {
+main#primary .post-flow .post::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(15.48, 32.84, 61.8, 0.08), transparent);
+  background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.08), transparent);
 }
-main#primary .post:hover {
+main#primary .post-flow .post:hover {
   border-color: rgba(56, 189, 248, 0.3);
   box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
 }
-main#primary .post h1.entry-title,
-main#primary .post h2 a {
-  color: rgb(15.48, 32.84, 61.8);
+main#primary .post-flow .post h1.entry-title,
+main#primary .post-flow .post h2.entry-title {
+  color: #0f172a;
   text-decoration: none;
   font-size: 1.125rem;
   font-weight: 700;
@@ -306,64 +288,77 @@ main#primary .post h2 a {
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
-main#primary .post h1.entry-title:hover,
-main#primary .post h2 a:hover {
-  color: #1369CF;
+main#primary .post-flow .post h1.entry-title:hover,
+main#primary .post-flow .post h2.entry-title:hover {
+  color: #2271B1;
 }
-main#primary .post h2 a {
+main#primary .post-flow .post h2.entry-title {
   font-size: 1rem;
   font-weight: 600;
 }
-main#primary .post .post-thumbnail {
+main#primary .post-flow .post .post-thumbnail {
   margin: -0.5rem -1rem 1rem -1rem;
 }
-main#primary .post .post-thumbnail img {
+main#primary .post-flow .post .post-thumbnail img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 0;
 }
-main#primary .post .post-meta {
+main#primary .post-flow .post .post-meta {
   font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 0.6875rem;
-  color: rgb(63.2, 88, 120.3);
+  color: #475569;
   margin-bottom: 0.75rem;
   display: flex;
   gap: 0.75rem;
   align-items: center;
 }
-main#primary .post .post-meta span {
+main#primary .post-flow .post .post-meta span {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-main#primary .post .post-content {
+main#primary .post-flow .post .post-content {
+  position: relative;
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+  background-color: #FFFFFF;
   line-height: 1.5;
-  color: rgb(15.48, 32.84, 61.8);
+  color: #0f172a;
   font-size: 0.875rem;
   letter-spacing: 0;
   word-spacing: 0;
+  overflow: hidden;
 }
-main#primary .post .post-content p {
+main#primary .post-flow .post .post-content::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background: linear-gradient(to bottom, transparent 0%, transparent 50%, #FFFFFF 100%);
+}
+main#primary .post-flow .post .post-content p {
   margin-bottom: 1rem;
 }
-main#primary .post .post-content p:last-child {
+main#primary .post-flow .post .post-content p:last-child {
   margin-bottom: 0;
 }
-main#primary .post .post-content h3,
-main#primary .post .post-content h4 {
-  color: rgb(15.48, 32.84, 61.8);
+main#primary .post-flow .post .post-content h3,
+main#primary .post-flow .post .post-content h4 {
+  color: #0f172a;
   margin: 1.25rem 0 0.75rem;
   letter-spacing: -0.01em;
 }
-main#primary .post .entry-footer {
+main#primary .post-flow .post .entry-footer {
   margin-top: 1rem;
   padding: 0.5rem 0.75rem;
-  background: rgba(15.48, 32.84, 61.8, 0.03);
-  border: 1px dashed rgba(15.48, 32.84, 61.8, 0.08);
+  background: rgba(15, 23, 42, 0.03);
+  border: 1px dashed rgba(15, 23, 42, 0.08);
   font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 0.625rem;
-  color: rgb(63.2, 88, 120.3);
+  color: #475569;
 }
 main#primary .post-navigation {
   display: flex;
@@ -382,15 +377,15 @@ main#primary .post-navigation .nav-next {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(15.48, 32.84, 61.8, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   padding: 1rem;
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 main#primary .post-navigation .nav-previous:hover,
 main#primary .post-navigation .nav-next:hover {
-  background: rgba(19, 105, 207, 0.1);
-  border-color: rgba(19, 105, 207, 0.3);
+  background: rgba(34, 113, 177, 0.1);
+  border-color: rgba(34, 113, 177, 0.3);
 }
 main#primary .post-navigation .nav-previous .nav-subtitle,
 main#primary .post-navigation .nav-next .nav-subtitle {
@@ -398,21 +393,21 @@ main#primary .post-navigation .nav-next .nav-subtitle {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: rgb(63.2, 88, 120.3);
+  color: #475569;
   margin-bottom: 0.5rem;
 }
 main#primary .post-navigation .nav-previous .nav-title,
 main#primary .post-navigation .nav-next .nav-title {
   display: block;
   font-weight: 600;
-  color: rgb(15.48, 32.84, 61.8);
+  color: #0f172a;
 }
 
 footer {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(15.48, 32.84, 61.8, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-left: none;
   border-right: none;
   border-bottom: none;
@@ -423,14 +418,14 @@ footer {
   justify-content: space-between;
   z-index: 100;
   font-size: 0.8125rem;
-  color: rgb(63.2, 88, 120.3);
+  color: #475569;
 }
 footer a {
-  color: rgb(63.2, 88, 120.3);
+  color: #475569;
   text-decoration: none;
 }
 footer a:hover {
-  color: #1369CF;
+  color: #2271B1;
 }
 
 ::-webkit-scrollbar {
@@ -438,38 +433,15 @@ footer a:hover {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(15.48, 32.84, 61.8, 0.05);
-  border: 1px solid rgba(15.48, 32.84, 61.8, 0.08);
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.08);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(19, 105, 207, 0.3);
-  border: 1px solid #1369CF;
+  background: rgba(34, 113, 177, 0.3);
+  border: 1px solid #2271B1;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1369CF;
+  background: #2271B1;
 }
 
-@media (max-width: 1200px) {
-  .sidebar {
-    width: 180px;
-  }
-}
-@media (max-width: 1024px) {
-  .main-container {
-    flex-direction: column;
-    overflow-y: auto;
-  }
-  .sidebar {
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid rgba(15.48, 32.84, 61.8, 0.08);
-    overflow-y: visible;
-  }
-  body {
-    overflow-y: auto;
-  }
-  #page {
-    height: auto;
-  }
-}
+/*# sourceMappingURL=style.css.map */

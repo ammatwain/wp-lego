@@ -1,5 +1,5 @@
 /*
-Theme Name: 46BA Modern Theme (Sass)
+Theme Name: WP-LEGO Modern Theme (Sass)
 Theme URI: http://example.com/
 Author: Antigravity
 Author URI: http://example.com/
@@ -48,46 +48,33 @@ img {
     max-inline-size: 100%;
 }
 
-// --- DYNAMIC COLOR SYSTEM ---
-// 1. Choose your base color
-$base-seed: #1369CF;
-// 2. Choose your style: 'dark' or 'light'
-$theme-style: 'light';
+    $italian-green: #008C45;
+    $italian-white: #FFFFFF;
+    $italian-red  : #CD212A;
 
-// Automated Harmonization Logic
-$accent-color: $base-seed;
-$accent-glow: rgba($accent-color, 0.3);
+    $accent-color: #2271B1;
+    $border-color: #C3C4C7;
 
-$primary-bg: null;
-$secondary-bg: null;
-$glass-bg: null;
-$text-primary: null;
-$text-secondary: null;
-$glass-border: null;
-$link-color: null;
-$shadow-color: null;
+    $dark-bg: #1D2327;
+    $light-bg: #F0F0F1;
 
-@if $theme-style =='light' {
-    $primary-bg: color.mix($base-seed, #ffffff, 4%);
-    $secondary-bg: color.mix($base-seed, #f1f5f9, 8%);
+    $dark-fg: $light-bg;
+    $light-fg: $dark-bg;
+
+    $dark-icon:#9AA0A5;
+    $light-icon:#646970;
+
+    $widget-bg: #FFFFFF;
+    $widget-header-bg: #E6E7F7;
+
+    $secondary-bg: #FFFFFF;
     $glass-bg: rgba(white, 0.7);
-    $text-primary: color.mix($base-seed, #0f172a, 12%);
-    $text-secondary: color.mix($base-seed, #475569, 15%);
+    $text-primary: #0f172a;
+    $text-secondary:  #475569;
     $glass-border: rgba($text-primary, 0.08);
-    $link-color: color.mix($accent-color, $text-primary, 70%); // Adjusted for light mode contrast
-    $shadow-color: color.mix($base-seed, #0f172a, 10%); // Natural shadow for light mode
-}
+    $link-color: $text-primary;
+    $shadow-color: #0f172a;
 
-@else {
-    $primary-bg: color.mix($base-seed, #020617, 8%);
-    $secondary-bg: color.mix($base-seed, #020617, 15%);
-    $glass-bg: rgba($secondary-bg, 0.7);
-    $text-primary: color.mix($base-seed, #f8fafc, 5%);
-    $text-secondary: color.mix($base-seed, #64748b, 15%);
-    $glass-border: rgba($text-primary, 0.1);
-    $link-color: color.mix($accent-color, $text-primary, 60%); // Harmonized contrast for dark mode
-    $shadow-color: color.adjust(color.mix($base-seed, #000, 15%), $lightness: -10%); // Deep tinted shadow for dark mode
-}
 
 // Spacing System (Lego vs Duplo)
 $space-xxs: 0.25rem;
@@ -99,8 +86,7 @@ $space-xl: 1.5rem;
 
 // Technic System
 $font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-$border-radius-technic: 2px;
-$connector-color: #ffcc00; // Technic yellow pin
+$border-radius: $space-xxs;
 
 // Layout Constants
 $sidebar-width: 256px;
@@ -144,9 +130,8 @@ a {
 
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: $primary-bg;
-    background-image:
-        radial-gradient($glass-border 1px, transparent 1px);
+    background-color: $light-bg;
+    //background-image: radial-gradient($glass-border 1px, transparent 1px);
     background-size: 24px 24px; // Technical grid
     color: $text-primary;
     font-size: 0.8125rem; // Even more compact
@@ -164,14 +149,22 @@ body {
 }
 
 // Layout Components
-header {
-    @include glass-effect(20px);
-    border: none;
-    border-bottom: 1px solid $glass-border;
+.site-header {
+    background: linear-gradient(
+        to bottom,
+        #008C45 0%,
+        #008C45 33.33%,
+        #FFFFFF 33.33%,
+        #FFFFFF 66.66%,
+        #CD212A 66.66%,
+        #CD212A 100%
+    );
+    border: 1px solid $border-color;
     z-index: 100;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    //box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     padding: 0;
-    min-height: 48px;
+    max-height: 30px;
+    min-height: 30px;
 
     .site-title a {
         color: $text-primary;
@@ -184,7 +177,7 @@ header {
         background-clip: text;
         -webkit-text-fill-color: transparent;
         display: block;
-        padding: $space-xs 0;
+        padding: $space-xs;
     }
 
     .main-navigation {
@@ -247,8 +240,8 @@ header {
             content: '';
             width: 4px;
             height: 4px;
-            background: $connector-color;
-            border-radius: 50%;
+            background-color: $accent-color;
+            border-radius: $border-radius;
         }
     }
 }
@@ -258,7 +251,7 @@ main#primary {
     overflow-y: auto;
     padding: $space-md;
     scroll-behavior: smooth;
-    background: radial-gradient(circle at center, rgba(56, 189, 248, 0.03) 0%, transparent 70%);
+    //background: radial-gradient(circle at center, rgba(56, 189, 248, 0.03) 0%, transparent 70%);
     .post-flow {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
@@ -266,200 +259,210 @@ main#primary {
         grid-auto-flow: row;
         gap: 1rem;
 
-        article {
+        .post{
+            cursor: pointer;
             /* Prima riga: A */
             &:nth-child(6n + 1) {
-            grid-column: span 6;
+                grid-column: span 6;
             }
 
             /* Seconda riga: B */
             &:nth-child(6n + 2) {
-            grid-column: span 3;
+                grid-column: span 3;
             }
 
             /* Seconda riga: C */
             &:nth-child(6n + 3) {
-            grid-column: span 3;
+                grid-column: span 3;
             }
 
             /* Terza riga e successive: D */
             &:nth-child(n + 4):nth-child(3n + 4) {
-            grid-column: span 2;
+                grid-column: span 2;
             }
 
             /* Terza riga e successive: E */
             &:nth-child(n + 4):nth-child(3n + 5) {
-            grid-column: span 2;
+                grid-column: span 2;
             }
 
             /* Terza riga e successive: F */
             &:nth-child(n + 4):nth-child(3n + 6) {
-            grid-column: span 2;
+                grid-column: span 2;
             }
-        }
-    }
-    .post {
-        @include glass-effect(5px);
-        border-radius: $border-radius-technic;
-        border: 1px solid $glass-border;
-        background: rgba($secondary-bg, 0.8);
-        padding: $space-md;
-        margin-bottom: $space-md;
-        transition: all 0.2s ease;
-        position: relative;
-        overflow: visible; // To let pins show
 
-        &::after {
-            // Technic pin detail
-            content: '';
-            position: absolute;
-            top: -5px;
-            right: 20px;
-            width: 10px;
-            height: 10px;
-            background: $connector-color;
-            border-radius: 50%;
-            box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .entry-header {
             display: grid;
-            justify-items: self-end;
-            grid-template-columns: 2fr 2fr 1fr;
-            grid-template-rows: auto min-content;
-            gap: 0px 0px;
-            grid-template-areas:
-                "a a a"
-                "b c d";
-            margin-top: -$space-md; // Pull up to bleed into top padding
-            margin-left: -$space-md;
-            margin-right: -$space-md;
-            margin-bottom: $space-xs;
-            padding: $space-xs $space-md $space-xs $space-xs;
-            background: rgba($text-primary, 0.05);
-            border-bottom: 2px solid $glass-border;
-            font-family: $font-mono;
-            font-size: 0.6875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: $text-secondary;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 15px 100%, 0 calc(100% - 15px));
-        }
+            /* Definisce 1 colonna che occupa tutto lo spazio disponibile */
+            grid-template-columns: 1fr; 
+            /* Definisce 3 righe (es. uguali, fisse o basate sul contenuto) */
+            grid-template-rows: min-content min-content auto; 
+            /* Opzionale: aggiunge spazio tra le righe */
+            gap: 1px; 
 
-        .entry-title {
-            justify-self: start;
-            grid-area: a;
-        }
+            max-height: 30vh;
 
-        .edit-link {
-            grid-area: b;
-        }
+            border-radius: $border-radius;
+            border: 1px solid $border-color;
+            background-color: $border-color; ;
+            //padding: $space-md;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: visible; // To let pins show
 
-        .posted-on {
-            grid-area: c;
-        }
+            &::after {
+                // Technic pin detail
+                content: '';
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                width: 10px;
+                height: 10px;
+                background: $accent-color;
+                border-radius: 50%;
+                box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2);
+            }
 
-        .byline {
-            grid-area: d;
-        }
+            .entry-header {
+                border-radius: $border-radius $border-radius 0 0;
+                padding: $space-xxs $space-xs;
+                background-color: $widget-header-bg;
+                //font-family: $font-mono;
+                font-size: 0.6875rem;
+                //text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: $text-secondary;
+            }
 
+            .entry-title {
+                justify-self: start;
+            }
 
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, $glass-border, transparent);
-        }
+            .posted-on {
+                background-color: $widget-bg;
+                text-align: right;
+                color: $text-secondary;
+                font-size: 0.625rem;
+                padding: $space-xxs $space-xs;
+                font-style: italic;
+            }
 
-        &:hover {
-            border-color: rgba(56, 189, 248, 0.3);
-            box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
-        }
-
-        h1.entry-title,
-        h2 a {
-            color: $text-primary;
-            text-decoration: none;
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-top: $space-xs;
-            margin-bottom: $space-xs;
-            display: inline-block;
-            transition: color 0.2s;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, $glass-border, transparent);
+            }
 
             &:hover {
-                color: $accent-color;
+                border-color: rgba(56, 189, 248, 0.3);
+                box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
             }
-        }
 
-        h2 a {
-            font-size: 1rem;
-            font-weight: 600;
-        }
+            h1.entry-title,
+            h2.entry-title {
+                color: $text-primary;
+                text-decoration: none;
+                font-size: 1.125rem;
+                font-weight: 700;
+                margin-top: $space-xs;
+                margin-bottom: $space-xs;
+                display: inline-block;
+                transition: color 0.2s;
+                line-height: 1.2;
+                letter-spacing: -0.02em;
 
-        .post-thumbnail {
-            margin: -0.5rem -1rem 1rem -1rem;
-
-            img {
-                width: 100%;
-                height: auto;
-                display: block;
-                border-radius: 0;
-            }
-        }
-
-        .post-meta {
-            font-family: $font-mono;
-            font-size: 0.6875rem;
-            color: $text-secondary;
-            margin-bottom: $space-sm;
-            display: flex;
-            gap: 0.75rem;
-            align-items: center;
-
-            span {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-            }
-        }
-
-        .post-content {
-            line-height: 1.5;
-            color: $text-primary;
-            font-size: 0.875rem;
-            letter-spacing: 0;
-            word-spacing: 0;
-
-            p {
-                margin-bottom: 1rem;
-
-                &:last-child {
-                    margin-bottom: 0;
+                &:hover {
+                    color: $accent-color;
                 }
             }
 
-            h3,
-            h4 {
-                color: $text-primary;
-                margin: 1.25rem 0 0.75rem;
-                letter-spacing: -0.01em;
+            h2.entry-title {
+                font-size: 1rem;
+                font-weight: 600;
             }
-        }
 
-        .entry-footer {
-            margin-top: $space-md;
-            padding: $space-xs $space-sm;
-            background: rgba($text-primary, 0.03);
-            border: 1px dashed $glass-border;
-            font-family: $font-mono;
-            font-size: 0.625rem;
-            color: $text-secondary;
+            .post-thumbnail {
+                margin: -0.5rem -1rem 1rem -1rem;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    border-radius: 0;
+                }
+            }
+
+            .post-meta {
+                font-family: $font-mono;
+                font-size: 0.6875rem;
+                color: $text-secondary;
+                margin-bottom: $space-sm;
+                display: flex;
+                gap: 0.75rem;
+                align-items: center;
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+            }
+
+            .post-content {
+                position: relative; 
+                padding: $space-xs $space-xs $space-md $space-xs;
+                background-color: $widget-bg;
+                line-height: 1.5;
+                color: $text-primary;
+                font-size: 0.875rem;
+                letter-spacing: 0;
+                word-spacing: 0;
+                overflow: hidden;
+
+                &::after {
+                    // Technic pin detail
+                    content: '';
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    bottom: 0px;
+                    right: 0px;
+                    background: linear-gradient(
+                        to bottom,
+                        transparent 0%,
+                        transparent 50%,
+                        $widget-bg 100%
+                    );
+                }
+
+                p {
+                    margin-bottom: 1rem;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                h3,
+                h4 {
+                    color: $text-primary;
+                    margin: 1.25rem 0 0.75rem;
+                    letter-spacing: -0.01em;
+                }
+            }
+
+            .entry-footer {
+                margin-top: $space-md;
+                padding: $space-xs $space-sm;
+                background: rgba($text-primary, 0.03);
+                border: 1px dashed $glass-border;
+                font-family: $font-mono;
+                font-size: 0.625rem;
+                color: $text-secondary;
+            }
         }
     }
 
@@ -548,36 +551,6 @@ footer {
         &:hover {
             background: $accent-color;
         }
-    }
-}
-
-// Responsive
-@media (max-width: 1200px) {
-    .sidebar {
-        width: 180px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .main-container {
-        flex-direction: column;
-        overflow-y: auto;
-    }
-
-    .sidebar {
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid $glass-border;
-        overflow-y: visible;
-    }
-
-    body {
-        overflow-y: auto;
-    }
-
-    #page {
-        height: auto;
     }
 }
 
