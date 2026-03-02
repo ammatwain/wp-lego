@@ -8,6 +8,9 @@ get_header();
     <main id="primary" class="site-main">
         <?php
         if ( have_posts() ) :
+            ?>
+            <div class="post-flow">
+            <?php
             while ( have_posts() ) :
                 the_post();
                 ?>
@@ -27,7 +30,9 @@ get_header();
             endwhile;
 
             the_posts_navigation();
-
+            ?>
+            </div>
+            <?php
         else :
             ?>
             <section class="no-results not-found">

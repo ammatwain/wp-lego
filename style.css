@@ -23,7 +23,7 @@ figure,
 p,
 ol,
 ul {
-  margin: auto;
+  margin: 0;
 }
 
 ol[role=list],
@@ -178,6 +178,49 @@ main#primary {
   scroll-behavior: smooth;
   background: radial-gradient(circle at center, rgba(56, 189, 248, 0.03) 0%, transparent 70%);
 }
+main#primary .post-flow {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
+  grid-auto-flow: row;
+  gap: 1rem;
+}
+main#primary .post-flow article {
+  /* Prima riga: A */
+}
+main#primary .post-flow article:nth-child(6n+1) {
+  grid-column: span 6;
+}
+main#primary .post-flow article {
+  /* Seconda riga: B */
+}
+main#primary .post-flow article:nth-child(6n+2) {
+  grid-column: span 3;
+}
+main#primary .post-flow article {
+  /* Seconda riga: C */
+}
+main#primary .post-flow article:nth-child(6n+3) {
+  grid-column: span 3;
+}
+main#primary .post-flow article {
+  /* Terza riga e successive: D */
+}
+main#primary .post-flow article:nth-child(n+4):nth-child(3n+4) {
+  grid-column: span 2;
+}
+main#primary .post-flow article {
+  /* Terza riga e successive: E */
+}
+main#primary .post-flow article:nth-child(n+4):nth-child(3n+5) {
+  grid-column: span 2;
+}
+main#primary .post-flow article {
+  /* Terza riga e successive: F */
+}
+main#primary .post-flow article:nth-child(n+4):nth-child(3n+6) {
+  grid-column: span 2;
+}
 main#primary .post {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(5px);
@@ -207,7 +250,7 @@ main#primary .post .entry-header {
   display: grid;
   justify-items: self-end;
   grid-template-columns: 2fr 2fr 1fr;
-  grid-template-rows: 1fr 0.1fr;
+  grid-template-rows: auto min-content;
   gap: 0px 0px;
   grid-template-areas: "a a a" "b c d";
   margin-top: -1rem;
