@@ -18,7 +18,7 @@ get_header();
                     <header class="entry-header">
                         <?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
                     </header>
-                    <div class="posted-on"><?php echo get_the_date(); ?></div>
+                    <div class="posted-on"><?= get_the_date(); ?> <?= get_the_time(); ?></div>
                     <div class="post-content">
                         <?php the_excerpt(); ?>
                     </div>

@@ -244,6 +244,10 @@ body {
             border-radius: $border-radius;
         }
     }
+
+    input {
+        width:100%;
+    }
 }
 
 main#primary {
@@ -259,7 +263,7 @@ main#primary {
         grid-auto-flow: row;
         gap: 1rem;
 
-        .post{
+        .post, .page{
             cursor: pointer;
             /* Prima riga: A */
             &:nth-child(6n + 1) {
@@ -359,6 +363,10 @@ main#primary {
             &:hover {
                 border-color: rgba(56, 189, 248, 0.3);
                 box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
+                h1.entry-title,
+                h2.entry-title {
+                    color: $accent-color;
+                }
             }
 
             h1.entry-title,
@@ -373,10 +381,6 @@ main#primary {
                 transition: color 0.2s;
                 line-height: 1.2;
                 letter-spacing: -0.02em;
-
-                &:hover {
-                    color: $accent-color;
-                }
             }
 
             h2.entry-title {
@@ -414,6 +418,7 @@ main#primary {
             .post-content {
                 position: relative; 
                 padding: $space-xs $space-xs $space-md $space-xs;
+                border-radius: 0 0 $border-radius $border-radius;
                 background-color: $widget-bg;
                 line-height: 1.5;
                 color: $text-primary;

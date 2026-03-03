@@ -165,6 +165,9 @@ body {
   background-color: #2271B1;
   border-radius: 0.25rem;
 }
+.sidebar input {
+  width: 100%;
+}
 
 main#primary {
   flex: 1;
@@ -179,44 +182,44 @@ main#primary .post-flow {
   grid-auto-flow: row;
   gap: 1rem;
 }
-main#primary .post-flow .post {
+main#primary .post-flow .post, main#primary .post-flow .page {
   cursor: pointer;
   /* Prima riga: A */
 }
-main#primary .post-flow .post:nth-child(6n+1) {
+main#primary .post-flow .post:nth-child(6n+1), main#primary .post-flow .page:nth-child(6n+1) {
   grid-column: span 6;
 }
-main#primary .post-flow .post {
+main#primary .post-flow .post, main#primary .post-flow .page {
   /* Seconda riga: B */
 }
-main#primary .post-flow .post:nth-child(6n+2) {
+main#primary .post-flow .post:nth-child(6n+2), main#primary .post-flow .page:nth-child(6n+2) {
   grid-column: span 3;
 }
-main#primary .post-flow .post {
+main#primary .post-flow .post, main#primary .post-flow .page {
   /* Seconda riga: C */
 }
-main#primary .post-flow .post:nth-child(6n+3) {
+main#primary .post-flow .post:nth-child(6n+3), main#primary .post-flow .page:nth-child(6n+3) {
   grid-column: span 3;
 }
-main#primary .post-flow .post {
+main#primary .post-flow .post, main#primary .post-flow .page {
   /* Terza riga e successive: D */
 }
-main#primary .post-flow .post:nth-child(n+4):nth-child(3n+4) {
+main#primary .post-flow .post:nth-child(n+4):nth-child(3n+4), main#primary .post-flow .page:nth-child(n+4):nth-child(3n+4) {
   grid-column: span 2;
 }
-main#primary .post-flow .post {
+main#primary .post-flow .post, main#primary .post-flow .page {
   /* Terza riga e successive: E */
 }
-main#primary .post-flow .post:nth-child(n+4):nth-child(3n+5) {
+main#primary .post-flow .post:nth-child(n+4):nth-child(3n+5), main#primary .post-flow .page:nth-child(n+4):nth-child(3n+5) {
   grid-column: span 2;
 }
-main#primary .post-flow .post {
+main#primary .post-flow .post, main#primary .post-flow .page {
   /* Terza riga e successive: F */
 }
-main#primary .post-flow .post:nth-child(n+4):nth-child(3n+6) {
+main#primary .post-flow .post:nth-child(n+4):nth-child(3n+6), main#primary .post-flow .page:nth-child(n+4):nth-child(3n+6) {
   grid-column: span 2;
 }
-main#primary .post-flow .post {
+main#primary .post-flow .post, main#primary .post-flow .page {
   display: grid;
   /* Definisce 1 colonna che occupa tutto lo spazio disponibile */
   grid-template-columns: 1fr;
@@ -232,7 +235,7 @@ main#primary .post-flow .post {
   position: relative;
   overflow: visible;
 }
-main#primary .post-flow .post::after {
+main#primary .post-flow .post::after, main#primary .post-flow .page::after {
   content: "";
   position: absolute;
   top: -5px;
@@ -243,7 +246,7 @@ main#primary .post-flow .post::after {
   border-radius: 50%;
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2);
 }
-main#primary .post-flow .post .entry-header {
+main#primary .post-flow .post .entry-header, main#primary .post-flow .page .entry-header {
   border-radius: 0.25rem 0.25rem 0 0;
   padding: 0.25rem 0.5rem;
   background-color: #E6E7F7;
@@ -251,10 +254,10 @@ main#primary .post-flow .post .entry-header {
   letter-spacing: 0.05em;
   color: #475569;
 }
-main#primary .post-flow .post .entry-title {
+main#primary .post-flow .post .entry-title, main#primary .post-flow .page .entry-title {
   justify-self: start;
 }
-main#primary .post-flow .post .posted-on {
+main#primary .post-flow .post .posted-on, main#primary .post-flow .page .posted-on {
   background-color: #FFFFFF;
   text-align: right;
   color: #475569;
@@ -262,7 +265,7 @@ main#primary .post-flow .post .posted-on {
   padding: 0.25rem 0.5rem;
   font-style: italic;
 }
-main#primary .post-flow .post::before {
+main#primary .post-flow .post::before, main#primary .post-flow .page::before {
   content: "";
   position: absolute;
   top: 0;
@@ -271,12 +274,18 @@ main#primary .post-flow .post::before {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.08), transparent);
 }
-main#primary .post-flow .post:hover {
+main#primary .post-flow .post:hover, main#primary .post-flow .page:hover {
   border-color: rgba(56, 189, 248, 0.3);
   box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
 }
+main#primary .post-flow .post:hover h1.entry-title,
+main#primary .post-flow .post:hover h2.entry-title, main#primary .post-flow .page:hover h1.entry-title,
+main#primary .post-flow .page:hover h2.entry-title {
+  color: #2271B1;
+}
 main#primary .post-flow .post h1.entry-title,
-main#primary .post-flow .post h2.entry-title {
+main#primary .post-flow .post h2.entry-title, main#primary .post-flow .page h1.entry-title,
+main#primary .post-flow .page h2.entry-title {
   color: #0f172a;
   text-decoration: none;
   font-size: 1.125rem;
@@ -288,24 +297,20 @@ main#primary .post-flow .post h2.entry-title {
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
-main#primary .post-flow .post h1.entry-title:hover,
-main#primary .post-flow .post h2.entry-title:hover {
-  color: #2271B1;
-}
-main#primary .post-flow .post h2.entry-title {
+main#primary .post-flow .post h2.entry-title, main#primary .post-flow .page h2.entry-title {
   font-size: 1rem;
   font-weight: 600;
 }
-main#primary .post-flow .post .post-thumbnail {
+main#primary .post-flow .post .post-thumbnail, main#primary .post-flow .page .post-thumbnail {
   margin: -0.5rem -1rem 1rem -1rem;
 }
-main#primary .post-flow .post .post-thumbnail img {
+main#primary .post-flow .post .post-thumbnail img, main#primary .post-flow .page .post-thumbnail img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 0;
 }
-main#primary .post-flow .post .post-meta {
+main#primary .post-flow .post .post-meta, main#primary .post-flow .page .post-meta {
   font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 0.6875rem;
   color: #475569;
@@ -314,14 +319,15 @@ main#primary .post-flow .post .post-meta {
   gap: 0.75rem;
   align-items: center;
 }
-main#primary .post-flow .post .post-meta span {
+main#primary .post-flow .post .post-meta span, main#primary .post-flow .page .post-meta span {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-main#primary .post-flow .post .post-content {
+main#primary .post-flow .post .post-content, main#primary .post-flow .page .post-content {
   position: relative;
   padding: 0.5rem 0.5rem 1rem 0.5rem;
+  border-radius: 0 0 0.25rem 0.25rem;
   background-color: #FFFFFF;
   line-height: 1.5;
   color: #0f172a;
@@ -330,7 +336,7 @@ main#primary .post-flow .post .post-content {
   word-spacing: 0;
   overflow: hidden;
 }
-main#primary .post-flow .post .post-content::after {
+main#primary .post-flow .post .post-content::after, main#primary .post-flow .page .post-content::after {
   content: "";
   position: absolute;
   top: 0px;
@@ -339,19 +345,20 @@ main#primary .post-flow .post .post-content::after {
   right: 0px;
   background: linear-gradient(to bottom, transparent 0%, transparent 50%, #FFFFFF 100%);
 }
-main#primary .post-flow .post .post-content p {
+main#primary .post-flow .post .post-content p, main#primary .post-flow .page .post-content p {
   margin-bottom: 1rem;
 }
-main#primary .post-flow .post .post-content p:last-child {
+main#primary .post-flow .post .post-content p:last-child, main#primary .post-flow .page .post-content p:last-child {
   margin-bottom: 0;
 }
 main#primary .post-flow .post .post-content h3,
-main#primary .post-flow .post .post-content h4 {
+main#primary .post-flow .post .post-content h4, main#primary .post-flow .page .post-content h3,
+main#primary .post-flow .page .post-content h4 {
   color: #0f172a;
   margin: 1.25rem 0 0.75rem;
   letter-spacing: -0.01em;
 }
-main#primary .post-flow .post .entry-footer {
+main#primary .post-flow .post .entry-footer, main#primary .post-flow .page .entry-footer {
   margin-top: 1rem;
   padding: 0.5rem 0.75rem;
   background: rgba(15, 23, 42, 0.03);
