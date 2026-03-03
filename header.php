@@ -10,20 +10,6 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page">
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-		</div>
-
-		<nav id="site-navigation" class="main-navigation">
-<?php
-/*
-wp_nav_menu(
-    array(
-    'theme_location' => 'menu-1',
-    'menu_id' => 'primary-menu',
-)
-);
-*/
-?>
-		</nav>
+	<header id="master-head" class="site-header">
+		<span class="motto"><?php bloginfo('description'); ?></span>
 	</header>

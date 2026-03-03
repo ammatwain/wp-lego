@@ -50,33 +50,35 @@ img {
     max-inline-size: 100%;
 }
 
-    $italian-green: #008C45;
-    $italian-white: #FFFFFF;
-    $italian-red  : #CD212A;
+$italian-green: #008C45;
+$italian-white: #FFFFFF;
+$italian-red  : #CD212A;
 
-    $accent-color: #2271B1;
-    $border-color: #C3C4C7;
+$accent-color: #2271B1;
+$border-color: #C3C4C7;
 
-    $dark-bg: #1D2327;
-    $light-bg: #F0F0F1;
+$dark-bg: #1D2327;
+$light-bg: #F0F0F1;
 
-    $dark-fg: $light-bg;
-    $light-fg: $dark-bg;
+$dark-fg: $light-bg;
+$light-fg: $dark-bg;
 
-    $dark-icon:#9AA0A5;
-    $light-icon:#646970;
+$dark-icon:#9AA0A5;
+$light-icon:#646970;
 
-    $widget-bg: #FFFFFF;
-    $widget-header-bg: #E6E7F7;
+$light-widget-bg: #FFFFFF;
+$light-widget-header-bg: #E6E7F7;
+$dark-widget-bg: $dark-bg;
+$dark-widget-header-bg: $dark-bg;
 
-    $secondary-bg: #FFFFFF;
-    $glass-bg: rgba(white, 0.7);
-    $text-primary: #0f172a;
-    $text-secondary:  #475569;
-    $glass-border: rgba($text-primary, 0.08);
-    $link-color: $text-primary;
-    $shadow-color: #0f172a;
-
+$secondary-bg: #FFFFFF;
+$glass-bg: rgba(white, 0.7);
+$text-primary: #0f172a;
+$text-secondary:  #475569;
+$glass-border: rgba($text-primary, 0.08);
+$link-color: $text-primary;
+$shadow-color: #0f172a;
+$header-height: 30px;
 
 // Spacing System (Lego vs Duplo)
 $space-xxs: 0.25rem;
@@ -106,6 +108,34 @@ $footer-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+input[type="search"], input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="password"], textarea {
+    margin: 0 0 $space-xxs 0;
+    outline: none;
+    outline-offset: none;
+    padding: $space-xxs;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+}
+
+input[type="submit"], input[type="button"], button {
+    margin: 0 0 $space-xxs 0;
+    padding: $space-xxs $space-sm;
+    border: none;
+    border-radius: $border-radius;
+    background-color: $accent-color;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: color.scale($accent-color, $lightness: -10%);
+    }
 }
 
 // Global Styles
@@ -160,13 +190,24 @@ body {
         #CD212A 66.66%,
         #CD212A 100%
     );
-    border: 1px solid $border-color;
+    border: none;
     z-index: 100;
-    //box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     padding: 0;
-    max-height: 30px;
-    min-height: 30px;
-
+    max-height: $header-height;
+    min-height: $header-height;
+    text-align: center;
+    .motto {
+        display: inline-block;
+        max-height: $header-height;
+        min-height: $header-height;
+        line-height: $header-height;
+        font-family: $font-mono;
+        font-size: 0.625rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: $accent-color;
+        font-weight: 700;
+    }
     .site-title a {
         color: $text-primary;
         text-decoration: none;
@@ -211,6 +252,8 @@ body {
 .sidebar {
     width: $sidebar-width;
     @include glass-effect(10px);
+    background-color: $dark-bg;
+    color: $dark-fg;
     border-top: none;
     border-bottom: none;
     border-left: none;
@@ -330,7 +373,7 @@ main#primary {
             .entry-header {
                 border-radius: $border-radius $border-radius 0 0;
                 padding: $space-xxs $space-xs;
-                background-color: $widget-header-bg;
+                background-color: $light-widget-header-bg;
                 //font-family: $font-mono;
                 font-size: 0.6875rem;
                 //text-transform: uppercase;
@@ -343,7 +386,7 @@ main#primary {
             }
 
             .posted-on {
-                background-color: $widget-bg;
+                background-color: $light-widget-bg;
                 text-align: right;
                 color: $text-secondary;
                 font-size: 0.625rem;
@@ -420,7 +463,7 @@ main#primary {
                 position: relative; 
                 padding: $space-xs $space-xs $space-md $space-xs;
                 border-radius: 0 0 $border-radius $border-radius;
-                background-color: $widget-bg;
+                background-color: $light-widget-bg;
                 line-height: 1.5;
                 color: $text-primary;
                 font-size: 0.875rem;
@@ -440,7 +483,7 @@ main#primary {
                         to bottom,
                         transparent 0%,
                         transparent 50%,
-                        $widget-bg 100%
+                        $light-widget-bg 100%
                     );
                 }
 
