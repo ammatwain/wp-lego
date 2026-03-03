@@ -25,7 +25,9 @@ endif;
 add_action( 'after_setup_theme', 'setup_46ba' );
 
 function theme_46ba_scripts() {
+	//wp_enqueue_style( 'roboto-fonts', 'assets/fonts/roboto/style', array(), null );
 	wp_enqueue_style( '46ba-style', get_stylesheet_uri()."?".time(), array(), '1.0.0' );
+
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap', array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'theme_46ba_scripts' );

@@ -9,6 +9,8 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: 46ba
 */
+@import "assets/fonts/roboto/style.css";
+@import "assets/fonts/roboto-mono/style.css";
 @import "modern-normalize.css";
 :root {
   line-height: 1.4;
@@ -66,7 +68,7 @@ a:hover {
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #F0F0F1;
   background-size: 24px 24px;
   color: #0f172a;
@@ -147,7 +149,7 @@ body {
   border-left: 1px solid rgba(15, 23, 42, 0.08);
 }
 .sidebar .widget-title {
-  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-family: "RobotoMono", monospace;
   font-size: 0.625rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -311,7 +313,7 @@ main#primary .post-flow .post .post-thumbnail img, main#primary .post-flow .page
   border-radius: 0;
 }
 main#primary .post-flow .post .post-meta, main#primary .post-flow .page .post-meta {
-  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-family: "RobotoMono", monospace;
   font-size: 0.6875rem;
   color: #475569;
   margin-bottom: 0.75rem;
@@ -363,7 +365,7 @@ main#primary .post-flow .post .entry-footer, main#primary .post-flow .page .entr
   padding: 0.5rem 0.75rem;
   background: rgba(15, 23, 42, 0.03);
   border: 1px dashed rgba(15, 23, 42, 0.08);
-  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-family: "RobotoMono", monospace;
   font-size: 0.625rem;
   color: #475569;
 }

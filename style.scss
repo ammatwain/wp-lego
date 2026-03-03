@@ -10,6 +10,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: 46ba
 */
 @use 'sass:color';
+@import "assets/fonts/roboto/style.css";
+@import "assets/fonts/roboto-mono/style.css";
 @import "modern-normalize.css";
 
 :root {
@@ -85,7 +87,7 @@ $space-lg: 1.25rem;
 $space-xl: 1.5rem;
 
 // Technic System
-$font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+$font-mono: 'RobotoMono', monospace;
 $border-radius: $space-xxs;
 
 // Layout Constants
@@ -129,9 +131,8 @@ a {
 }
 
 body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: "Roboto", sans-serif;
     background-color: $light-bg;
-    //background-image: radial-gradient($glass-border 1px, transparent 1px);
     background-size: 24px 24px; // Technical grid
     color: $text-primary;
     font-size: 0.8125rem; // Even more compact
