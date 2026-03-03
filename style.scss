@@ -7,10 +7,10 @@ Description: A modern, full-screen WordPress theme with a 5-column layout, built
 Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: 46ba
+Text Domain: wp-lego
 */
 @use 'sass:color';
-@import "assets/fonts/roboto/style.css";
+//@import "assets/fonts/roboto/style.css";
 @import "assets/fonts/roboto-mono/style.css";
 @import "modern-normalize.css";
 
@@ -24,17 +24,22 @@ h3,
 h4,
 h5,
 figure,
-p,
+p
+{
+    margin: 0;
+}
+
+/*
 ol,
 ul {
     margin: 0;
 }
-
 ol[role="list"],
 ul[role="list"] {
     list-style: none;
     padding-inline: 0;
 }
+*/
 
 h1,
 h2,
@@ -50,6 +55,7 @@ img {
     max-inline-size: 100%;
 }
 
+
 $italian-green: #008C45;
 $italian-white: #FFFFFF;
 $italian-red  : #CD212A;
@@ -60,7 +66,7 @@ $border-color: #C3C4C7;
 $dark-bg: #1D2327;
 $light-bg: #F0F0F1;
 
-$dark-fg: $light-bg;
+$dark-fg: $light-bg; 
 $light-fg: $dark-bg;
 
 $dark-icon:#9AA0A5;
@@ -68,6 +74,11 @@ $light-icon:#646970;
 
 $light-widget-bg: #FFFFFF;
 $light-widget-header-bg: #E6E7F7;
+$sidebar-left-1-bg: $light-widget-header-bg;
+$sidebar-left-2-bg: $light-bg;
+$sidebar-right-1-bg: $light-widget-header-bg;
+$sidebar-right-2-bg: $light-bg;
+
 $dark-widget-bg: $dark-bg;
 $dark-widget-header-bg: $dark-bg;
 
@@ -253,7 +264,7 @@ body {
     width: $sidebar-width;
     @include glass-effect(10px);
     background-color: $dark-bg;
-    color: $dark-fg;
+    color: color.scale($dark-fg, $lightness: 100%);
     border-top: none;
     border-bottom: none;
     border-left: none;
@@ -292,6 +303,19 @@ body {
     input {
         width:100%;
     }
+}
+
+.sidebar-left-1 {
+    background-color: $sidebar-left-1-bg;
+}
+.sidebar-left-2 {
+    background-color: $sidebar-left-2-bg;
+}
+.sidebar-right-1 {
+    background-color: $sidebar-right-1-bg;
+}
+.sidebar-right-2 {
+    background-color: $sidebar-right-2-bg;
 }
 
 main#primary {
@@ -603,3 +627,18 @@ footer {
     }
 }
 
+ul,
+ol {
+    color: blue;
+    list-style: none;
+    padding-left: .5rem; /* spazio per il pallino */
+    position: relative;
+}
+
+li::before {
+    content: '•';
+    color: inherit;
+    position: absolute;
+    left: 0; /* riporta pallino fuori */
+    //top: 0;
+}

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 Theme Name: WP-LEGO Modern Theme (Sass)
 Theme URI: http://example.com/
@@ -7,9 +8,8 @@ Description: A modern, full-screen WordPress theme with a 5-column layout, built
 Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: 46ba
+Text Domain: wp-lego
 */
-@import "assets/fonts/roboto/style.css";
 @import "assets/fonts/roboto-mono/style.css";
 @import "modern-normalize.css";
 :root {
@@ -22,18 +22,21 @@ h3,
 h4,
 h5,
 figure,
-p,
-ol,
-ul {
+p {
   margin: 0;
 }
 
-ol[role=list],
-ul[role=list] {
-  list-style: none;
-  padding-inline: 0;
+/*
+ol,
+ul {
+    margin: 0;
 }
-
+ol[role="list"],
+ul[role="list"] {
+    list-style: none;
+    padding-inline: 0;
+}
+*/
 h1,
 h2,
 h3,
@@ -176,7 +179,7 @@ body {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(15, 23, 42, 0.08);
   background-color: #1D2327;
-  color: #F0F0F1;
+  color: white;
   border-top: none;
   border-bottom: none;
   border-left: none;
@@ -211,6 +214,22 @@ body {
 }
 .sidebar input {
   width: 100%;
+}
+
+.sidebar-left-1 {
+  background-color: #E6E7F7;
+}
+
+.sidebar-left-2 {
+  background-color: #F0F0F1;
+}
+
+.sidebar-right-1 {
+  background-color: #E6E7F7;
+}
+
+.sidebar-right-2 {
+  background-color: #F0F0F1;
 }
 
 main#primary {
@@ -493,6 +512,21 @@ footer a:hover {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #2271B1;
+}
+
+ul,
+ol {
+  color: blue;
+  list-style: none;
+  padding-left: 0.5rem; /* spazio per il pallino */
+  position: relative;
+}
+
+li::before {
+  content: "•";
+  color: inherit;
+  position: absolute;
+  left: 0; /* riporta pallino fuori */
 }
 
 /*# sourceMappingURL=style.css.map */

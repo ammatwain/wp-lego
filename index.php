@@ -3,7 +3,13 @@ get_header();
 ?>
 
 <div class="main-container">
-    <?php get_sidebar('left-1'); ?>
+    <?php
+        if(is_active_sidebar('sidebar-left-1')) {
+            echo '<div class="sidebar sidebar-left-1">';
+            dynamic_sidebar('sidebar-left-1');
+            echo '</div>';
+        }
+    ?>
 
     <main id="primary" class="site-main">
         <?php
@@ -45,9 +51,18 @@ get_header();
         endif;
         ?>
     </main>
-
-    <?php get_sidebar('right-1'); ?>
-    <?php get_sidebar('right-2'); ?>
+<?php 
+    if(is_active_sidebar('sidebar-right-1')) {
+        echo '<div class="sidebar sidebar-right-1">';
+        dynamic_sidebar('sidebar-right-1');
+        echo '</div>';
+    }
+    if(is_active_sidebar('sidebar-right-2')) {
+        echo '<div class="sidebar sidebar-right-2">';
+        dynamic_sidebar('sidebar-right-2');
+        echo '</div>';
+    }
+?>
 </div>
 
 <?php
