@@ -343,6 +343,7 @@ main#primary {
     //background: radial-gradient(circle at center, rgba(56, 189, 248, 0.03) 0%, transparent 70%);
     .post-flow, .post-single {
 
+       
         a.lego, article {
             /* Prima riga: A */
 
@@ -361,7 +362,6 @@ main#primary {
             transition: all 0.2s ease;
             position: relative;
             overflow: visible; // To let pins show
-
             &::after {
                 // Technic pin detail
                 content: '';
@@ -503,6 +503,7 @@ main#primary {
             }
         }
     }
+
     .post-flow {
         display: grid;
         grid-template-columns: repeat(6, 1fr);

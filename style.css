@@ -255,8 +255,12 @@ main#primary {
   padding: 1rem;
   scroll-behavior: smooth;
 }
+main#primary .post-flow, main#primary .post-single {
+  min-height: 100%;
+}
 main#primary .post-flow a.lego, main#primary .post-flow article, main#primary .post-single a.lego, main#primary .post-single article {
   /* Prima riga: A */
+  min-height: 100%;
   display: grid;
   /* Definisce 1 colonna che occupa tutto lo spazio disponibile */
   grid-template-columns: 1fr;
