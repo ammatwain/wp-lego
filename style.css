@@ -753,6 +753,7 @@ main#primary .post-flow .post .post-content, main#primary .post-flow .page .post
   letter-spacing: 0;
   word-spacing: 0;
   overflow: hidden;
+  overflow-y: auto;
 }
 main#primary .post-flow .post .post-content::after, main#primary .post-flow .page .post-content::after {
   content: "";

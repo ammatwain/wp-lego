@@ -727,6 +727,7 @@ main#primary {
                 letter-spacing: 0;
                 word-spacing: 0;
                 overflow: hidden;
+                overflow-y: auto;
 
                 &::after {
                     // Technic pin detail
