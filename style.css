@@ -408,6 +408,11 @@ main#primary .post-single > a.lego,
 main#primary .post-single > article {
   flex: 1;
   min-height: 0;
+  /* content area should scroll if it overflows the card height */
+}
+main#primary .post-single > a.lego .post-content,
+main#primary .post-single > article .post-content {
+  overflow-y: auto;
 }
 main#primary .post-flow {
   display: grid;
@@ -753,7 +758,6 @@ main#primary .post-flow .post .post-content, main#primary .post-flow .page .post
   letter-spacing: 0;
   word-spacing: 0;
   overflow: hidden;
-  overflow-y: auto;
 }
 main#primary .post-flow .post .post-content::after, main#primary .post-flow .page .post-content::after {
   content: "";

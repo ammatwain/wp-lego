@@ -517,6 +517,11 @@ main#primary {
         > article {
             flex: 1;
             min-height: 0;
+
+            /* content area should scroll if it overflows the card height */
+            .post-content {
+                overflow-y: auto;
+            }
         }
     }
 
@@ -727,7 +732,6 @@ main#primary {
                 letter-spacing: 0;
                 word-spacing: 0;
                 overflow: hidden;
-                overflow-y: auto;
 
                 &::after {
                     // Technic pin detail
