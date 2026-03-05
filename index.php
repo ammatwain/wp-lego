@@ -99,9 +99,8 @@ get_header();
         <td width='100%'>&nbsp;</td>
         <td><?= get_previous_posts_link('>>>>>>>>') ?></td>
         </tr></table>
-        </div>
     </footer>
-    </div>
+    </div> <!-- .content-area -->
 <?php 
     if(is_active_sidebar('sidebar-right-1')) {
         echo '<div class="sidebar sidebar-right-1">';
@@ -114,7 +113,7 @@ get_header();
         echo '</div>';
     }
 ?>
-</div>
+</div> <!-- .main-container -->
 
 <?php
 get_footer();

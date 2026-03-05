@@ -263,6 +263,8 @@ body {
     overflow: hidden;
     height: 100%;
     min-width: 0;
+    /* ensure columns don't wrap even on narrow screens */
+    flex-wrap: nowrap;
 }
 
 .content-area {
@@ -275,6 +277,7 @@ body {
 
 .sidebar {
     width: $sidebar-width;
+    flex-shrink: 0; /* keep full width, prevent collapsing into content */
     @include glass-effect(10px);
     background-color: $dark-bg;
     color: color.scale($dark-fg, $lightness: 100%);
