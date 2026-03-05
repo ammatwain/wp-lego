@@ -261,12 +261,14 @@ body {
     display: flex;
     flex: 1;
     overflow: hidden;
+    height: 100%;
 }
 .content-area {
     display: flex;
     flex: 1;
     overflow: hidden;
     flex-direction: column;
+    min-height: 0;
 }
 
 .sidebar {
