@@ -10,9 +10,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: wp-lego
 */
 @use 'sass:color';
-//@import "assets/fonts/roboto/style.css";
-@import "assets/fonts/roboto-mono/style.css";
-@import "modern-normalize.css";
+@use "assets/fonts/roboto/roboto";
+@use "assets/fonts/roboto-mono/roboto-mono";
+@use "modern-normalize.scss";
 
 :root {
     line-height: 1.4;
