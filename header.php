@@ -10,6 +10,3 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page">
-	<header id="master-head" class="site-header">
-		<span class="motto"><?php bloginfo('description'); ?></span>
-	</header>

@@ -10,9 +10,17 @@ get_header();
             echo '</div>';
         }
     ?>
-
+    <div class="content-area">
+    <header id="master-head" class="site-header">
+        <span class="motto"><?php bloginfo('description'); ?></span>
+    </header>
     <main id="primary" class="site-main">
         <?php
+        if (is_search()) {
+            query_posts($query_string);
+        } else {
+            query_posts($query_string . '&cat=76');
+        }
         if ( have_posts() ) :
             ?>
             <div class="post-flow">
@@ -51,6 +59,22 @@ get_header();
         endif;
         ?>
     </main>
+    <footer id="colophon">
+        <div class="site-info">
+            <a href="<?php echo esc_url(__('https://wordpress.org/', '46ba')); ?>">
+                <?php
+    /* translators: %s: CMS name, i.e. WordPress. */
+    printf(esc_html__('Proudly powered by %s', 'WP-Lego'), 'WordPress');
+    ?>
+            </a>
+            <span class="sep"> | </span>
+            <?php
+    /* translators: 1: Theme name, 2: Theme author. */
+    printf(esc_html__('Theme: %1$s by %2$s.', 'WP-Lego'), 'WP-Lego', '46BA - CIS');
+    ?>
+        </div>
+    </footer>
+    </div>
 <?php 
     if(is_active_sidebar('sidebar-right-1')) {
         echo '<div class="sidebar sidebar-right-1">';

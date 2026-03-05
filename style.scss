@@ -192,6 +192,9 @@ body {
 
 // Layout Components
 .site-header {
+    top: 0;
+    left: 0;
+    right: 0;
     background: linear-gradient(
         to bottom,
         #008C45 0%,
@@ -259,6 +262,12 @@ body {
     flex: 1;
     overflow: hidden;
 }
+.content-area {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    flex-direction: column;
+}
 
 .sidebar {
     width: $sidebar-width;
@@ -319,6 +328,7 @@ body {
 }
 
 main#primary {
+    position:relative;
     flex: 1;
     overflow-y: auto;
     padding: $space-md;
