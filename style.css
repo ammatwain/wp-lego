@@ -874,18 +874,21 @@ footer a:hover {
   background: #2271B1;
 }
 
+/*
 ul,
 ol {
-  list-style: none;
-  padding-left: 0.5rem; /* spazio per il pallino */
-  position: relative;
+    list-style: none;
+    padding-left: .5rem; // spazio per il pallino
+    position: relative;
 }
 
 li::before {
-  content: "•";
-  color: inherit;
-  position: absolute;
-  left: 0; /* riporta pallino fuori */
+    content: '•';
+    color: inherit;
+    position: absolute;
+    left: 0; // riporta pallino fuori
+    //top: 0;
 }
+*/
 
 /*# sourceMappingURL=style.css.map */

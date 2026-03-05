@@ -864,11 +864,11 @@ footer {
         }
     }
 }
-
+/*
 ul,
 ol {
     list-style: none;
-    padding-left: .5rem; /* spazio per il pallino */
+    padding-left: .5rem; // spazio per il pallino
     position: relative;
 }
 
@@ -876,6 +876,7 @@ li::before {
     content: '•';
     color: inherit;
     position: absolute;
-    left: 0; /* riporta pallino fuori */
+    left: 0; // riporta pallino fuori
     //top: 0;
 }
+*/
