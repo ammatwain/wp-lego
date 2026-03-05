@@ -890,5 +890,17 @@ li::before {
     //top: 0;
 }
 */
+ul,
+ol,
+li {
+  /* revert any inherited or author-level changes
+     to the user agent defaults */
+  all: revert;
+}
+
+ul[role=list],
+ol[role=list] {
+  list-style: revert;
+}
 
 /*# sourceMappingURL=style.css.map */
