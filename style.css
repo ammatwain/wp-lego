@@ -876,7 +876,6 @@ footer a:hover {
 
 ul,
 ol {
-  color: blue;
   list-style: none;
   padding-left: 0.5rem; /* spazio per il pallino */
   position: relative;
