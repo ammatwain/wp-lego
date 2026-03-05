@@ -334,6 +334,168 @@ main#primary {
     padding: $space-md;
     scroll-behavior: smooth;
     //background: radial-gradient(circle at center, rgba(56, 189, 248, 0.03) 0%, transparent 70%);
+    .post-flow, .post-single {
+
+        a.lego, article {
+            /* Prima riga: A */
+
+            display: grid;
+            /* Definisce 1 colonna che occupa tutto lo spazio disponibile */
+            grid-template-columns: 1fr; 
+            /* Definisce 3 righe (es. uguali, fisse o basate sul contenuto) */
+            grid-template-rows: min-content min-content auto; 
+            /* Opzionale: aggiunge spazio tra le righe */
+            gap: 1px; 
+
+            border-radius: $border-radius;
+            border: 1px solid $border-color;
+            background-color: $border-color; ;
+            //padding: $space-md;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: visible; // To let pins show
+
+            &::after {
+                // Technic pin detail
+                content: '';
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                width: 10px;
+                height: 10px;
+                background: $accent-color;
+                border-radius: 50%;
+                box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2);
+            }
+
+            .entry-header {
+                border-radius: $border-radius $border-radius 0 0;
+                padding: $space-xxs $space-xs;
+                background-color: $light-widget-header-bg;
+                //font-family: $font-mono;
+                font-size: 0.6875rem;
+                //text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: $text-secondary;
+            }
+
+            .entry-title {
+                justify-self: start;
+            }
+
+            .posted-on {
+                background-color: $light-widget-bg;
+                text-align: right;
+                color: $text-secondary;
+                font-size: 0.625rem;
+                padding: $space-xxs $space-xs;
+                font-style: italic;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, $glass-border, transparent);
+            }
+
+            &:hover {
+                border-color: rgba(56, 189, 248, 0.3);
+                box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
+                h1.entry-title,
+                h2.entry-title {
+                    color: $accent-color;
+                }
+            }
+
+            h1.entry-title,
+            h2.entry-title {
+                color: $text-primary;
+                text-decoration: none;
+                font-size: 1.125rem;
+                font-weight: 700;
+                margin-top: $space-xs;
+                margin-bottom: $space-xs;
+                display: inline-block;
+                transition: color 0.2s;
+                line-height: 1.2;
+                letter-spacing: -0.02em;
+            }
+
+            h2.entry-title {
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            .post-thumbnail {
+                margin: -0.5rem -1rem 1rem -1rem;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    border-radius: 0;
+                }
+            }
+
+            .post-meta {
+                font-family: $font-mono;
+                font-size: 0.6875rem;
+                color: $text-secondary;
+                margin-bottom: $space-sm;
+                display: flex;
+                gap: 0.75rem;
+                align-items: center;
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+            }
+
+            .post-content {
+                position: relative; 
+                padding: $space-xs $space-xs $space-md $space-xs;
+                border-radius: 0 0 $border-radius $border-radius;
+                background-color: $light-widget-bg;
+                line-height: 1.5;
+                color: $text-primary;
+                font-size: 0.875rem;
+                letter-spacing: 0;
+                word-spacing: 0;
+                overflow: hidden;
+
+                p {
+                    margin-bottom: 1rem;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                h3,
+                h4 {
+                    color: $text-primary;
+                    margin: 1.25rem 0 0.75rem;
+                    letter-spacing: -0.01em;
+                }
+            }
+
+            .entry-footer {
+                margin-top: $space-md;
+                padding: $space-xs $space-sm;
+                background: rgba($text-primary, 0.03);
+                border: 1px dashed $glass-border;
+                font-family: $font-mono;
+                font-size: 0.625rem;
+                color: $text-secondary;
+            }
+        }
+    }
     .post-flow {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
@@ -341,7 +503,7 @@ main#primary {
         grid-auto-flow: row;
         gap: 1rem;
 
-        .post, .page{
+        a.post, .page{
             cursor: pointer;
             /* Prima riga: A */
             &:nth-child(6n + 1) {

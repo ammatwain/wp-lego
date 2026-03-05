@@ -23,21 +23,55 @@ get_header();
         }
         if ( have_posts() ) :
             ?>
+            <?php
+            if (!is_single()) {
+            ?>
             <div class="post-flow">
+            <?php
+            } else {
+            ?>
+            <div class="post-single">
+            <?php
+            }
+            ?>
             <?php
             while ( have_posts() ) :
                 the_post();
                 ?>
-                <a id="post-<?php the_ID(); ?>" <?php post_class(); ?> href="<?php the_permalink(); ?>" rel="bookmark">
+                <?php
+                if (!is_single()) {
+                ?>
+                    <a id="post-<?php the_ID(); ?>" <?php post_class("lego"); ?> href="<?php the_permalink(); ?>" rel="bookmark">
+                <?php
+                } else {
+                ?>
+                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> href="<?php the_permalink(); ?>" rel="bookmark">
+                <?php
+                }
+                ?>
                     <header class="entry-header">
                         <?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
                     </header>
                     <div class="posted-on"><?= get_the_date(); ?> <?= get_the_time(); ?></div>
                     <div class="post-content">
-                        <?php the_excerpt(); ?>
+                        <?php
+                        if (!is_single()) {
+                        the_excerpt();
+                        } else {
+                        the_content();
+                        }
+                        ?>
                     </div>
-                </a>
+               <?php
+                if (!is_single()) {
+                ?>
+                    </a>
                 <?php
+                } else {
+                ?>
+                    </article>
+                <?php
+                }
             endwhile;
 
             the_posts_navigation();
@@ -59,19 +93,12 @@ get_header();
         endif;
         ?>
     </main>
-    <footer id="colophon">
-        <div class="site-info">
-            <a href="<?php echo esc_url(__('https://wordpress.org/', '46ba')); ?>">
-                <?php
-    /* translators: %s: CMS name, i.e. WordPress. */
-    printf(esc_html__('Proudly powered by %s', 'WP-Lego'), 'WordPress');
-    ?>
-            </a>
-            <span class="sep"> | </span>
-            <?php
-    /* translators: 1: Theme name, 2: Theme author. */
-    printf(esc_html__('Theme: %1$s by %2$s.', 'WP-Lego'), 'WP-Lego', '46BA - CIS');
-    ?>
+    <footer id="colophon" style='width:100%; display:block'>
+        <table border ="0" style='width:100%; height:100%'><tr>
+        <td><?= get_next_posts_link('<<<<<<<<') ?></td>
+        <td width='100%'>&nbsp;</td>
+        <td><?= get_previous_posts_link('>>>>>>>>') ?></td>
+        </tr></table>
         </div>
     </footer>
     </div>
